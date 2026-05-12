@@ -1,22 +1,25 @@
-# World Layoffs: Data Cleaning in MySQL 📉🧹
+# World Layoffs: Data Cleaning & Exploratory Data Analysis (EDA) 📉🔍
 
 ## 📌 Project Overview
-This project focuses on a complete data cleaning process of a "World Layoffs" dataset using **MySQL**. The goal was to transform raw, messy data into a clean, structured format suitable for Exploratory Data Analysis (EDA).
+This repository contains a two-part SQL project focused on the "World Layoffs" dataset. 
+1. **Data Cleaning:** Transforming raw data into a usable format.
+2. **Exploratory Data Analysis (EDA):** Uncovering trends and patterns in global layoffs from 2020 to 2023.
 
 ## 🛠️ Skills & SQL Concepts Applied
-- **Data Staging:** Creating auxiliary tables to preserve raw data integrity.
-- **Duplicate Removal:** Identifying and deleting redundant records using `ROW_NUMBER()` and **CTEs**.
-- **Standardization:** Using `TRIM`, `TRAILING`, and `LIKE` to fix inconsistent strings and categories.
-- **Date Conversion:** Transforming text columns into proper `DATE` formats using `STR_TO_DATE`.
-- **Null Value Imputation:** Handling missing data through **Self-Joins** and logical updates.
-- **Schema Optimization:** Modifying column types and dropping unnecessary columns for performance.
+- **Advanced EDA:** Identifying top companies, industries, and countries impacted by layoffs.
+- **Window Functions:** Using `DENSE_RANK()` to create yearly rankings and `SUM() OVER()` for rolling totals.
+- **Time Series Analysis:** Extracting and grouping data by years and months to visualize trends over time.
+- **Complex CTEs:** Structuring multi-level Common Table Expressions to perform advanced filtering and calculations.
+- **Data Aggregation:** Extensive use of `GROUP BY` and aggregate functions to summarize financial impacts and funding levels.
 
-## 🚀 Key Technical Solutions
-* **The Duplicate Challenge:** Since MySQL doesn't allow direct deletions from a CTE, I used a secondary staging table with an auxiliary `row_num` column to physically remove duplicates.
-* **Smart Imputation:** Developed a join logic that populates missing `industry` fields by referencing other records from the same company.
+## 💡 Key Business Insights Discovered
+* **Rolling Totals:** Calculated the cumulative progression of layoffs month-over-month to visualize the pandemic's impact.
+* **Top Rankings:** Identified the top 5 companies with the most layoffs for each year using ranking partitions.
+* **Funding Impact:** Analyzed the relationship between funds raised and layoff percentages, identifying high-risk company stages (e.g., Post-IPO vs. Series B).
 
-## 📂 Files in this Repository
-* `layoffs_data_cleaning.sql`: The full SQL script containing the cleaning workflow.
+## 📂 Repository Structure
+* `layoffs_data_cleaning.sql`: Full script for the data cleaning workflow.
+* `layoffs_eda.sql`: Script containing all exploratory queries and business questions.
 
 ---
 **Author:** Italo Fernando Martin Yupan Artica  
