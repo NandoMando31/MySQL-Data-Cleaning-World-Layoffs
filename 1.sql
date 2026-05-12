@@ -119,7 +119,7 @@ OR industry = '';
 
 SELECT *
 FROM layoffs_staging2
-WHERE company = 'Bally%';
+WHERE company LIKE 'Bally%';
 
 SELECT t1.industry, t2.industry
 FROM layoffs_staging2 t1
